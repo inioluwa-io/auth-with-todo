@@ -23,7 +23,7 @@ export default function SignupForm() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError('');
-
+    // review; look at react-hook-form npm package.  
     // Validation
     if (!formData.name || !formData.email || !formData.password) {
       setError('Please fill in all fields');
@@ -62,7 +62,7 @@ export default function SignupForm() {
 
       router.push('/dashboard');
     } catch (err) {
-      setError('An error occurred. Please try again.');
+      setError('An error occurred. Please try again.'); // This is okay but ideally error message should be from back end
       console.error(err);
     } finally {
       setLoading(false);
