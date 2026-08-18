@@ -12,6 +12,7 @@ type Todo = {
 };
 
 export default function TodoApp() {
+  // review, consider using react-hook-form package
   const [todos, setTodos] = useState<Todo[]>([]);
   const [loading, setLoading] = useState(false);
   const [title, setTitle] = useState('');
