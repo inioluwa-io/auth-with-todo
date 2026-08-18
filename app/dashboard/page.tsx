@@ -16,6 +16,7 @@ export default function DashboardPage() {
   const router = useRouter();
 
   useEffect(() => {
+    // review; consider making this a hook so it can ebe reused in other places - useMe: () => {data, isLoading}. This way you just check for isLoading, data
     const checkAuth = async () => {
       try {
         // Try to get the current user data from a protected endpoint
