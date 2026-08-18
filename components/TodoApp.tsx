@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 
+// review, consider moving this entity into its own file (./entities/todo.ts) so it can be reused and not duplicated. You have it duplicated in TodoApp and TodoBoard
 type Todo = {
   _id: string;
   title: string;
@@ -22,6 +23,7 @@ export default function TodoApp() {
   const [search, setSearch] = useState('');
   const [filterTag, setFilterTag] = useState('');
 
+  // review, consider a hook here useGetTodos, and store it outside of this file so it can be used anywhere
   const fetchTodos = async () => {
     setLoading(true);
     try {
@@ -54,6 +56,7 @@ export default function TodoApp() {
 
   const handleRemoveTag = (t: string) => setTags((s) => s.filter((x) => x !== t));
 
+  // review, consider a hook here
   const handleCreate = async (e?: React.FormEvent) => {
     e?.preventDefault();
     if (!title.trim()) return;
@@ -74,6 +77,7 @@ export default function TodoApp() {
     }
   };
 
+  // review, consider a hook here
   const toggleComplete = async (id: string, completed: boolean) => {
     try {
       const res = await fetch('/api/todos/' + id, {
@@ -87,6 +91,7 @@ export default function TodoApp() {
     }
   };
 
+  // review, consider a hook here
   const handleDelete = async (id: string) => {
     if (!confirm('Delete this todo?')) return;
     try {
